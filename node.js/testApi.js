@@ -4,7 +4,7 @@ var fs = require("fs");
 
 var mysql = require("mysql");
 
-app.get('/listUsers', function(req, res) {
+app.get('/testApiDB', function(req, res) {
     var con = mysql.createConnection({
 	host : "localhost",
 	user : "root",
@@ -26,6 +26,18 @@ app.get('/listUsers', function(req, res) {
     });
     
 })
+
+app.get('/testApiPing', function(req, res) {
+
+    var paramsIn = req.query.param1;
+
+    res.send(reverse(paramsIn));
+
+})
+
+function reverse(s) {
+    return s.split('').reverse().join('');
+}
 
 var server = app.listen(8081, function() {
 

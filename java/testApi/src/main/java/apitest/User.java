@@ -1,4 +1,4 @@
-package hello;
+package apitest;
 
 import javax.persistence.Entity;
 

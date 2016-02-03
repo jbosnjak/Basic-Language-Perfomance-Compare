@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -16,7 +15,8 @@ func main() {
         panic(err.Error())
     }
     defer db.Close()
-
+	
+	//opens 100 connections to the database
     for c := 0; c < 100; c++ {
 		query, err := db.Query("SELECT idtestTable FROM testtable WHERE MAKETXT = 'BMW'")
 		if err != nil {
