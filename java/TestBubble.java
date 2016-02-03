@@ -7,7 +7,7 @@ public class TestBubble {
 			bubble();
 		}
 		long end = System.currentTimeMillis();
-		System.out.println(end - init);
+		System.out.println((end - init)+" ms");
 	}
 	
 	public static void bubble(){

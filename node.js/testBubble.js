@@ -20,4 +20,4 @@ function bubble() {
     }
 }
 
-console.log(new Date().getTime()-starttime);
+console.log((new Date().getTime()-starttime) + " ms");

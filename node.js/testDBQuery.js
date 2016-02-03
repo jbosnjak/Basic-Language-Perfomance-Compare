@@ -12,7 +12,7 @@ con.connect(function(err) {
 	console.log('Error connecting to Db');
 	return;
     }
-    console.log('Connection established');
+    //console.log('Connection established');
 });
 
 var c = 0;
@@ -24,7 +24,7 @@ for (var i = 0; i < 100; i++) {
 	}
 	c++;
 	if (c > 99) {
-	    console.log(new Date().getTime() - starttime);
+	    console.log((new Date().getTime() - starttime) + " ms");
 	}
 
     });
