@@ -16,7 +16,7 @@ public class ApiTestController {
 			if (user == null){
 				return "User Not Found";
 			}
-			return user.getMaketxt().toString();
+			return user.getContent().toString();
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();

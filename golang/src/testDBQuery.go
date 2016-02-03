@@ -18,7 +18,7 @@ func main() {
 	
 	//opens 100 connections to the database
     for c := 0; c < 100; c++ {
-		query, err := db.Query("SELECT idtestTable FROM testtable WHERE MAKETXT = 'BMW'")
+		query, err := db.Query("SELECT idtestTable FROM testtable WHERE content = 'a test content with BMW'")
 		if err != nil {
 			panic(err.Error())
 		}

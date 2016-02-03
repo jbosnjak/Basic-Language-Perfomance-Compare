@@ -2,7 +2,7 @@ CREATE TABLE `testtable` (
   `idtestTable` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idtestTable`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 INSERT INTO testtable(content) VALUES('a test content with BMW');
 INSERT INTO testtable(content) VALUES('a test content with BMW');

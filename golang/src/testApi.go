@@ -44,7 +44,7 @@ func apiDB(w http.ResponseWriter, r * http.Request){
     }
     defer db.Close()
 
-	stmt, err := db.Prepare("SELECT maketxt FROM testtable WHERE idtesttable = ?")
+	stmt, err := db.Prepare("SELECT content FROM testtable WHERE idtesttable = ?")
 
     res, err := stmt.Query(userId)
 

@@ -15,15 +15,15 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idtesttable;
 	
-    private String maketxt;
+    private String content;
 	
 	public User(){
 		
 	}
 
-    public User(long idtesttable, String maketxt) {
+    public User(long idtesttable, String content) {
         this.idtesttable = idtesttable;
-		this.maketxt = maketxt;
+		this.content = content;
     }
 
     public long getIdtesttable() {
@@ -34,10 +34,10 @@ public class User {
 		this.idtesttable = idtesttable;
 	}
 
-    public String getMaketxt() {
-        return maketxt;
+    public String getContent() {
+        return content;
     }
-	public void setContent(String maketxt){
-		this.maketxt = maketxt;
+	public void setContent(String content){
+		this.content = content;
 	}
 }
