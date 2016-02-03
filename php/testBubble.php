@@ -24,14 +24,15 @@ function bubble() {
 			12 
 	];
 	$size = sizeof($arrayb);
-	for($i = 0; $i < $size; $i ++) {
-		for($y = 0; $y < ($size - 1); $y ++) {
-			if ($arrayb [$y + 1] < $arrayb [$y]) {
-				$t = $arrayb [$y];
-				$arrayb [$y] = $arrayb [$y + 1];
-				$arrayb [$y + 1] = $t;
-			}
-		}
-	}
+// 	for($i = 0; $i < $size; $i ++) {
+// 		for($y = 0; $y < ($size - 1); $y ++) {
+// 			if ($arrayb [$y + 1] < $arrayb [$y]) {
+// 				$t = $arrayb [$y];
+// 				$arrayb [$y] = $arrayb [$y + 1];
+// 				$arrayb [$y + 1] = $t;
+// 			}
+// 		}
+// 	}
+	sort($arrayb);
 }
 
