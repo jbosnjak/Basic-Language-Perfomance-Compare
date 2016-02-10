@@ -19,9 +19,7 @@ var c = 0;
 //opens 100 connections to the database
 for (var i = 0; i < 100; i++) {
     con.query("SELECT idtestTable FROM testtable WHERE content = 'a test content with BMW'", function(err, row) {
-	if (row.length!= 123){
-	    console.log("error");
-	}
+	
 	c++;
 	if (c > 99) {
 	    console.log((new Date().getTime() - starttime) + " ms");
