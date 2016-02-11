@@ -5,6 +5,7 @@ for ($i = 0; $i < 100; $i++) {
 	$mysqli = new mysqli("127.0.0.1", "root", "", "test");
 	$res = $mysqli->query("SELECT idtestTable FROM testtable WHERE content = 'a test content with BMW'");
     $row = $res->fetch_assoc();
+	$mysqli->close();
 }
 
 $end= round(microtime(true) * 1000);

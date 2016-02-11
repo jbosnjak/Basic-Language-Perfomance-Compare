@@ -1,19 +1,24 @@
 package main
 
 import (
-    "database/sql"
+    //"database/sql"
     _ "github.com/go-sql-driver/mysql"
+	"github.com/gin-gonic/gin"
 	"net/http"
-	"fmt"
+	//"fmt"
 )
 
 func main() {
-	http.HandleFunc("/testApiPing", apiPing)
-	http.HandleFunc("/testApiDB", apiDB)
-    http.ListenAndServe(":8082", nil)
+	//http.HandleFunc("/testApiPing", apiPing)
+	//http.HandleFunc("/testApiDB", apiDB)
+    //http.ListenAndServe(":8082", nil)
+	r := gin.Default()
+	r.GET("/testApiPing", apiPing)
+	//r.GET("/testApiDB", apiDB)
+    r.Run(":8082")
 }
 
-func apiDB(w http.ResponseWriter, r * http.Request){
+/*func apiDB(w http.ResponseWriter, r * http.Request){
 	
 	userId := r.URL.Query().Get("user")
 	
@@ -42,13 +47,21 @@ func apiDB(w http.ResponseWriter, r * http.Request){
 
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, "Response: ", col1)
-}
+	r.Header.Set("Connection", "close")
+}*/
 
-func apiPing(w http.ResponseWriter, r * http.Request){
+/*func apiPing(w http.ResponseWriter, r * http.Request){
 	
 	param1 := r.URL.Query().Get("param1")
 
     w.Write([]byte(Reverse(param1)));
+	
+	r.Header.Set("Connection", "close")
+}*/
+
+func apiPing(c *gin.Context){
+	param1 := c.Param("param1")
+    c.String(http.StatusOK, Reverse(param1))
 }
 
 func Reverse(s string) string {
