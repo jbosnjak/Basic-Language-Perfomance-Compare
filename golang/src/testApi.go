@@ -1,7 +1,7 @@
 package main
 
 import (
-    //"database/sql"
+    "database/sql"
     _ "github.com/go-sql-driver/mysql"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -15,7 +15,7 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.New()
 	r.GET("/testApiPing", apiPing)
-	//r.GET("/testApiDB", apiDB)
+	r.GET("/testApiDB", apiDB)
     r.Run(":8082")
 }
 
@@ -50,6 +50,35 @@ func main() {
 	fmt.Fprintln(w, "Response: ", col1)
 	r.Header.Set("Connection", "close")
 }*/
+
+func apiDB(c *gin.Context){
+	userId := c.Param("user")
+	
+ 	db, err := sql.Open("mysql", "root@/test")
+    if err != nil {
+        panic(err.Error())
+    }
+    defer db.Close()
+
+	stmt, err := db.Prepare("SELECT content FROM testtable WHERE idtesttable = ?")
+
+    res, err := stmt.Query(userId)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	var col1 string
+	res.Next();
+	err = res.Scan(&col1);
+
+	if err != nil {
+		panic(err.Error())
+	}
+	defer res.Close()
+
+	c.String(http.StatusOK, "Response: %s", col1)
+}
 
 /*func apiPing(w http.ResponseWriter, r * http.Request){
 	
