@@ -18,7 +18,7 @@ app.get('/testApiDB', function(req, res) {
 	}
     });
     
-    con.query("SELECT maketxt FROM testtable WHERE idtesttable  = "+req.query.user, function(err, row) {
+    con.query("SELECT content FROM testtable WHERE idtesttable  = "+req.query.user, function(err, row) {
 	res.send(row);
     });
     
