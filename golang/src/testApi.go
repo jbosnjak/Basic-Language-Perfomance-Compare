@@ -9,7 +9,6 @@ import (
 	"runtime"
 )
 
-
 func main() {
 	ConfigRuntime()
 	StartWorkers()
@@ -28,10 +27,7 @@ func StartWorkers() {
 
 func StartGin() {
 	gin.SetMode(gin.ReleaseMode)
-
 	r := gin.New()
-	//r.Use(rateLimit, gin.Recovery())
-	
 	r.GET("/testApiPing", apiPing)
 	r.GET("/testApiDB", apiDB)
     r.Run(":8082")
